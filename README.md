@@ -5,7 +5,7 @@ Senanu K. Fiam-Coblavie
 Kpetermeni Siakor
 Edwina Baiden
 Worlanyo Adrah
-Felix Tetteh
+Felix Kwakye
 
 ## Overview
 This Application is to be used to log into Ashesi's courseware and pull all subject timetable and sync with 
