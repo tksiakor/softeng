@@ -20,38 +20,29 @@ The ease of access to the timetable will encourage more punctuality among users 
 Without this solution, students have to log into the Ashesi Courseware page via a Web browser and navigate through each course they have registered for and see at the Submission date and time. Then, Memorize it. Very Tedious.
 
 
-### Git
-
-- A good place to learn about setting up git is [here][git-github]
-- Git [home][git-home] (download, documentation)
 
 
-## Workings of the application
+## The Current State of iCal
+Still initiating...
 
 
 
-## Commits Outline
+## Current File Structure
+### Directories Layout:
+index.html
+images/
+js/http.js
+css/fonts/
+
+### Architecture
+https://github.com/ashesi-SE/iCal/wiki/Architecture
 
 
-
-
-### Installing dependencies
-
-
-### Running the app during development
-
-
-### Running unit tests
+## How to Clone
 
 
 
 
-### End to end testing
-
-
-
-## Application Directory Layout
-
-
-## Contact
+## Wiki
+https://github.com/ashesi-SE/iCal/wiki
 
