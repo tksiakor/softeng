@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" href='css/jquery.mobile-1.4.4.min.css'/>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src='js/jquery.mobile-1.4.4.min.js'></script>
+<script src='js/angular.min.js'></script>
+<script src='js/events.js'></script>
+</head>
+<body ng-app="">
+<div data-role="page" id="home">
+<div data-role="header">
+<div data-role="navbar">
+	<ul>	
+	<li><a	href="#home" data-transition="pop" data-icon="home">Home</a></li>
+	<h1 align="center">iCal</h1>
+	<li><a	href="#individual" data-transition="pop" data-icon="carat-r">Individual</a></li>
+	</ul>
+</div>
+</div>
+
+<div role="main" class="ui-content">
+<a	href="#" data-role="button">SYNC OOO SYNC!!!</a>
+<a	href="#individual" data-role="button">OK, DO INDIVIDUAL MAKE WE SEE..</a>
+</div>
+
+<div data-role="footer">
+<h1>Developed By:Tha Cartel</h1>
+</div>
+
+</div>
+
+<div data-role="page" id="individual">
+<div data-role="header">
+<div data-role="navbar">
+	<ul>	
+	<li><a	href="#home" data-transition="pop" data-icon="home">Home</a></li>
+	<h1 align="center">iCal</h1>
+	<li><a	href="#individual" data-transition="pop" data-icon="carat-r">Individual</a></li>
+	</ul>
+</div>
+</div>
+
+<div role="main" class="ui-content">
+<div>
+<ul ng-controller="Events">
+<li ng-repeat="x in events">
+	<label class="checkbox" for={{"x.topic"}}>
+		<input type="checkbox" value="{{x.topic}}" name="group" id="{{x.topic}}"/>
+		 {{x.topic + ', ' + x.date}}
+	</label>
+</li>
+</ul>
+</div>
+</div>
+
+<div data-role="footer">
+<h1>Developed By: Team 5K</h1>
+</div>
+
+</div>
+</body>
+</html>
