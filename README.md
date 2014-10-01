@@ -1,11 +1,11 @@
 # iCal - Courseware Calender App
 
 #Team Members
-Senanu K. Fiam-Coblavie 
-Kpetermeni Siakor
-Edwina Baiden
-Worlanyo Adrah
-Felix Kwakye
+Senanu K. Fiam-Coblavie<br/>
+Kpetermeni Siakor<br/>
+Edwina Baiden<br/>
+Worlanyo Adrah<br/>
+Felix Kwakye<br/>
 
 ## Purpose
 This Application is to be used to log into Ashesi's courseware and pull all subject timetable and sync with 
