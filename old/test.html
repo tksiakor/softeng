@@ -5,6 +5,7 @@
 <script type="text/javascript" src='js/jquery.mobile-1.4.4.min.js'></script>
 <script src='js/angular.min.js'></script>
 <script src='js/events.js'></script>
+<script src='js/ical.js'></script>
 </head>
 <body ng-app="">
 <div data-role="page" id="home">
@@ -19,7 +20,7 @@
 </div>
 
 <div role="main" class="ui-content">
-<a	href="#" data-role="button">SYNC OOO SYNC!!!</a>
+<a	href="#" data-role="button" onclick="months()">SYNC OOO SYNC!!!</a>
 <a	href="#individual" data-role="button">OK, DO INDIVIDUAL MAKE WE SEE..</a>
 </div>
 
@@ -38,6 +39,7 @@
 	<li><a	href="#individual" data-transition="pop" data-icon="carat-r">Individual</a></li>
 	</ul>
 </div>
+
 </div>
 
 <div role="main" class="ui-content">
@@ -49,7 +51,24 @@
 </ul>
 </div>
 </div>
+<script>
+	var ical = require('ical');
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+ical.fromURL('http://ashesi.edu.gh/resources/events.html?task=ical.download&id=181', {}, function(err, data) {
+      for (var k in data){
+        if (data.hasOwnProperty(k)) {
+          var ev = data[k]
+          console.log("Event",
+            ev.summary,
+            'is in',
+            ev.location,
+            'on the', ev.start.getDate(), 'of', months[ev.start.getMonth()]);
+        }
+      }
+    });
+
+</script>
 <div data-role="footer">
 <h1>Developed By: Team 5K</h1>
 </div>
