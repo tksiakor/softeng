@@ -7,7 +7,7 @@ app.get('/ical', function(req, res){
 	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 	ical.fromURL('http://ashesi.edu.gh/resources/events.html?task=ical.download&id=181', {}, function(err, data) {
-      for (var k in data){
+      /*for (var k in data){
         if (data.hasOwnProperty(k)) {
           var ev = data[k]
           console.log("Event",
@@ -18,12 +18,18 @@ app.get('/ical', function(req, res){
 
         }
       }
+      */
       //console.log("******* are: "+ev.summary);
+      res.header("Access-Control-Allow-Origin", "http://localhost:8000");
+       res.header("Access-Control-Allow-Methods", "GET, POST");
+      
       res.send(data);
+
+
 
     });
 });
 
-var server = app.listen(8000, function() {
+var server = app.listen(8080, function() {
     console.log('Listening on port %d', server.address().port);
 });

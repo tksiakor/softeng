@@ -11,26 +11,23 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', '$http', '$templateCache',
   function($scope, $http, $templateCache) {
-    $scope.method = 'GET';
-    $scope.url = 'ashesi-event.ics';
+    var url = "http://localhost:8080/ical";
+   
+        $http.get(url).success(function (data) {
 
-      $scope.code = null;
-      $scope.response = null;
-      $scope.summary = [] // Initialize with an empty array
+          var arr = $.map(data, function(value, key){return value;});
+          $scope.summary = [];
+        $scope.ical = arr;
+        $scope.count = arr.length;
 
-    $http.get($scope.url).success(function(data, status, headers, config) {
-        // When the request is successful, add value to $scope.users
-       	
-        $scope.summary = data.split('\n')
-        var temp = $scope.summary.length;
-        for (var i = 0; i < temp; i++) {
-        	//$scope.summary[i] = temp[i].split(':')
-        	$scope.summary[i] = $scope.summary[i].substr('SUMMARY', '\n')
-        };
-
+        // $scope.summary.push(arr[0].summary);
+        // $scope.summary.push(arr[1].summary);
+        // $scope.summary.push(arr[0].summary);
+       
+      })
         //$scope.summary = $scope.summary.split(':')
 
-    })
+    }
 /*
       $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
         success(function(data, status) {
@@ -50,4 +47,9 @@ angular.module('myApp.view1', ['ngRoute'])
       });
     
     */
-  }]);
+  
+
+
+
+
+  ]);

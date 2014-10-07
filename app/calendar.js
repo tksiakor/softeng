@@ -13,3 +13,5 @@ ical.fromURL('http://ashesi.edu.gh/resources/events.html?task=ical.download&id=1
         }
       }
     });
+
+

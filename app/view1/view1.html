@@ -2,12 +2,20 @@
 
 
 <div ng-controller="View1Ctrl">
-<pre>http status code: {{status}}</pre>
-<pre>http response data: {{data}}</pre>
+{{summary.summary}}
+{{count}}
+<!-- {{ical}} -->
 
 <ul>
-	<li ng-repeat="s in summary">
-		{{s}}
+	<li ng-repeat="i in ical track by $index">
+
+		{{i.summary}}:{{i.start}}
+		<!-- <ul>
+		<li ng-repeat="s in i.summary track by $index"> 
+			{{s}}
+		</li>
+		</ul>	 -->
+		
 	</li>
 </ul>
 </div>
