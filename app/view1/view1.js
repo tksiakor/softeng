@@ -11,64 +11,26 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', '$http', '$templateCache',
   function($scope, $http, $templateCache) {
-    var url = "http://localhost:8080/ical?uid=11";
+    var url = "http://localhost:8080/ical?uid=11&stdate=20140619&edate=20141212&summary=My+first+event&description=This+event+is+the+best&location=LH221&url=not+now";
     
-
-    // $http.post('http://localhost:8080/ical',{ "uid": "john", "email": "doe" }).success(function(response) {
-    //        console.log("success");
-    //       }).error(function(err){
-    //          console.log("failure")
-    //       });
-
-
         $http.get(url).success(function (data) {
+          console.log(url);
+          // window.location.assign(url);
+          
+          $scope.clickme = function(){
+            window.open(url, '_self');
 
-          var arr = $.map(data, function(value, key){return value;});
-          $scope.summary = [];
-        $scope.ical = arr;
-        $scope.count = arr.length;
+          }
+      }
 
-        // $scope.summary.push(arr[0].summary);
-        // $scope.summary.push(arr[1].summary);
-        // $scope.summary.push(arr[0].summary);
-       
+      )
+       .error(function(data){
+        console.log("there was an error -_-")
+
       })
-       // $scope.summary = $scope.summary.split(':')
-
-        // $http.get(url).success(function (data) {
-
-        //   var arr = $.map(data, function(value, key){return value;});
-        //   $scope.summary = [];
-        // $scope.ical = arr;
-        // $scope.count = arr.length;
-
-        // $scope.summary.push(arr[0].summary);
-        // $scope.summary.push(arr[1].summary);
-        // $scope.summary.push(arr[0].summary);
-       
-      //})
 
     }
-/*
-      $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
-        success(function(data, status) {
-          $scope.status = status
-          var i=0;
-             while(i<10){
-          	var d = data.substr(data.indexOf('SUMMARY'), '\n');
-          	console.log(d+'\n');
-          	i++;
-          }
-          $scope.data = data;
 
-        }).
-        error(function(data, status) {
-          $scope.data = data || "Request failed";
-          $scope.status = status;
-      });
-    
-    */
-  
 
 
 
