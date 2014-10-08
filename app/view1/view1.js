@@ -11,8 +11,16 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', '$http', '$templateCache',
   function($scope, $http, $templateCache) {
-    var url = "http://localhost:8080/ical";
-   
+    var url = "http://localhost:8080/ical?uid=11";
+    
+
+    // $http.post('http://localhost:8080/ical',{ "uid": "john", "email": "doe" }).success(function(response) {
+    //        console.log("success");
+    //       }).error(function(err){
+    //          console.log("failure")
+    //       });
+
+
         $http.get(url).success(function (data) {
 
           var arr = $.map(data, function(value, key){return value;});
@@ -25,7 +33,20 @@ angular.module('myApp.view1', ['ngRoute'])
         // $scope.summary.push(arr[0].summary);
        
       })
-        //$scope.summary = $scope.summary.split(':')
+       // $scope.summary = $scope.summary.split(':')
+
+        // $http.get(url).success(function (data) {
+
+        //   var arr = $.map(data, function(value, key){return value;});
+        //   $scope.summary = [];
+        // $scope.ical = arr;
+        // $scope.count = arr.length;
+
+        // $scope.summary.push(arr[0].summary);
+        // $scope.summary.push(arr[1].summary);
+        // $scope.summary.push(arr[0].summary);
+       
+      //})
 
     }
 /*

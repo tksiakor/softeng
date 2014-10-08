@@ -1,5 +1,22 @@
 <p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+
+
+<div ng-controller="View2Ctrl">
+{{summary.summary}}
+{{count}}
+<!-- {{ical}} -->
+
+<ul>
+	<li ng-repeat="i in ical track by $index">
+
+		{{i.summary}}:{{i.start}}
+		<!-- <ul>
+		<li ng-repeat="s in i.summary track by $index"> 
+			{{s}}
+		</li>
+		</ul>	 -->
+		
+	</li>
+</ul>
+</div>
+<!--<p> This is the birthday text {{birthdaytext}}</p>-->
