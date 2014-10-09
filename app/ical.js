@@ -37,6 +37,21 @@ cal.serve(res);
 });
 
 
+app.get('/ical2', function(req, res){
+
+  var ical = require('ical');
+  ical.fromURL('http://ashesi.edu.gh/resources/events.html?task=ical.download&id=181', {}, function(err, data) {
+
+      res.header("Access-Control-Allow-Origin", "http://localhost:8000");
+       res.header("Access-Control-Allow-Methods", "GET, POST");
+      
+      res.send(data);
+
+
+
+    });
+
+});
  
 
 

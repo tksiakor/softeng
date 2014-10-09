@@ -10,7 +10,7 @@
 <ul>
 	<li ng-repeat="i in ical track by $index">
 
-		{{i.summary}}:{{i.start}}
+		<a href="#" ng-click='clickme()'>{{i.summary}}:{{i.start}}</a>
 		<!-- <ul>
 		<li ng-repeat="s in i.summary track by $index"> 
 			{{s}}
