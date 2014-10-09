@@ -1,0 +1,60 @@
+
+
+body {
+    background: url(../images/backgroundimage3.jpg) !important;
+    /* font-family: 'Oswald', sans-serif; */
+    background-attachment:fixed;
+    background-size:100%;
+}
+
+
+.ui-page, .ui-content{  
+    background: transparent;
+    margin-top: 10px;
+    margin-right: 10%;
+    margin-left: 5%;
+    padding-top: 3px;
+    padding-bottom: 50px;
+}
+
+
+
+.icon-plus-sign{
+    margin: 5px;
+    
+}
+
+
+.transparent{
+/*  background:#7f7f7f;
+  background:rgba(0,0,0,0.5);
+  width: 80%;
+  height: 50px;*/
+  margin-right: 20%;
+  margin-left: 7%;
+  -moz-box-shadow: 0px 3px 7px #000000;
+-webkit-box-shadow: 0px 3px 7px #000000;
+box-shadow: 0px 3px 7px #000000;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+
+}
+
+#div2 {
+    white-space: nowrap; 
+    width: 12em; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    /*border: 1px solid #000000;*/
+}
+ controlgroup-controls .ui-btn, .ui-controlgroup-controls .ui-checkbox, .ui-controlgroup-controls .ui-radio, .ui-controlgroup-controls .ui-select {
+margin-left: 3%;
+margin-right: 3%;
+}
+
+#span {
+    background: url(images/calendar.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+}

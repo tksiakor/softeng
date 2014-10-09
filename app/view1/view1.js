@@ -31,7 +31,7 @@ angular.module('myApp.view1', ['ngRoute'])
         //$scope.summary = $scope.summary.split(':')
 
     })
-/*
+
       $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
         success(function(data, status) {
           $scope.status = status
@@ -48,6 +48,37 @@ angular.module('myApp.view1', ['ngRoute'])
           $scope.data = data || "Request failed";
           $scope.status = status;
       });
+    var fileInput = function ($parse) {
+    return {
+        restrict: "EA",
+        template: "<input type='file' />",
+        replace: true,          
+        link: function (scope, element, attrs) {
+ 
+            var modelGet = $parse(attrs.fileInput);
+            var modelSet = modelGet.assign;
+            var onChange = $parse(attrs.onChange);
+ 
+            var updateModel = function () {
+                scope.$apply(function () {
+                    modelSet(scope, element[0].files[0]);
+                    onChange(scope);
+                });                    
+            };
+             
+            element.bind('change', updateModel);
+        }
+    };
+};
+
+    var UploadController = function ($scope, fileReader) {
+     
+    $scope.readFile = function () {            
+        fileReader.readAsDataUrl($scope.file, $scope)
+                  .then(function(result) {
+                        $scope.imageSrc = result;
+                    });
+    };
+  };
     
-    */
-  }]);
+}]);
