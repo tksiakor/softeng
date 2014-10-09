@@ -1,16 +1,20 @@
-<p>This is the partial for view 1.</p>
+<h2>AshCal Individual Events</h2>
 
 
-<div ng-controller="View1Ctrl">
-	<a href="#" ng-click='clickme()'>Click me</a>
+<div ng-controller="View1Ctrl" class="ui-content" role="main">
+	<!-- <a href="#" ng-click='clickme()'>All Events Count: </a> -->
+All Events Count:
 {{summary.summary}}
 {{count}}
 <!-- {{ical}} -->
+ <br/> <br/>
+Search Events:
+<input ng-model="searchText"/>
+ <br/>
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Search events..." data-inset="true">
+	<li ng-repeat="i in ical | filter:searchText track by $index">
 
-<ul>
-	<li ng-repeat="i in ical track by $index">
-
-		<a href="#" ng-click='clickme()'>{{i.summary}}:{{i.start}}</a>
+		<a href="#" ng-click='clickme()'>{{i.summary}}</a>
 		<!-- <ul>
 		<li ng-repeat="s in i.summary track by $index"> 
 			{{s}}
