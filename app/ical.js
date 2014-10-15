@@ -13,8 +13,8 @@ app.get('/ical', function(req, res){
        res.header("Access-Control-Allow-Methods", "GET, POST");
   
   console.log('uid:'+ req.param('uid'));
- console.log('stdate:'+ req.param('stdate'));
- console.log('edate:'+ req.param('edate'));
+ console.log('stdate:'+ req.param('stdate').substring(4,6));
+ console.log('edate:'+ new Date().getTime());
  console.log('summary:'+ req.param('summary'));
  console.log('description:'+ req.param('description'));
  console.log('location:'+ req.param('location'));
@@ -24,8 +24,8 @@ app.get('/ical', function(req, res){
 
 cal.addEvent({
     uid:''+req.param('uid'),
-    start: new Date(req.param('stdate')),
-    end: new Date(req.param('edate')),
+    start: new Date(req.param('stdate').substring(0,4), req.param('stdate').substring(4,6)-1, req.param('stdate').substring(6,8)),
+    end: new Date(new Date().getTime()+3600000),
     summary: ''+req.param('summary'),
     description: ''+req.param('description'),
     location: ''+req.param('location'),
