@@ -24,8 +24,8 @@ app.get('/ical', function(req, res){
 
 cal.addEvent({
     uid:''+req.param('uid'),
-    start: new Date(req.param('stdate').substring(0,4), req.param('stdate').substring(4,6)-1, req.param('stdate').substring(6,8)),
-    end: new Date(new Date().getTime()+3600000),
+    start: new Date(req.param('stdate')),
+    end: new Date(req.param('edate')),
     summary: ''+req.param('summary'),
     description: ''+req.param('description'),
     location: ''+req.param('location'),

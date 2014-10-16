@@ -14,7 +14,7 @@ Search Events:
 <ul data-role="listview" data-filter="true" data-filter-placeholder="Search events..." data-inset="true">
 	<li ng-repeat="i in ical | filter:searchText track by $index">
 
-		<a href="#" ng-click='clickme()'>{{i.summary}}</a>
+		<a href="#" ng-click='clickme(i.uid,i.start,i.end,i.summary,i.description,i.location,i.url)'>{{i.summary}}</a>
 		<!-- <ul>
 		<li ng-repeat="s in i.summary track by $index"> 
 			{{s}}

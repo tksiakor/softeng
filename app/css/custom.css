@@ -10,43 +10,42 @@ and open the template in the editor.
 
 
 body {
-    background: url(../images/bacgroundimage.jpg) !important;
+    background: url(../images/back3.jpg) no-repeat fixed !important;
     /* font-family: 'Oswald', sans-serif; */
-    background-attachment:fixed;
-    background-size:100%;
 }
 
-.ui-page, .ui-content{  
-    background: transparent;
-    margin-top: 20px;
-    margin-right: 10%;
-    margin-left: 5%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+ul{
+    list-style: none;
 }
 
-.ui-btn {
-    border:solid 15px #ffffff;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-    /*background-color: rgba(215, 40, 40, 0.9);*/
-    /*background: rgba(215, 40, 40, 0.9);*/
-    color: rgba(215, 40, 40, 0.9);
-    background-color: transparent;
-    color: aliceblue;
-    font-size: x-large;
-    /*min-width: 70px;*/
+li {
+    border-bottom: 1px solid #90bade;
+    margin: 0;
+    list-style: none;
+    list-style-image: none;
+}
+
+ul li a{
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    border-left: 10px solid #1958b7;
+    border-right: 10px solid #508fc4;
+    background-color: #fff;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+}
+
+h2{
+    margin-left:100px;
 }
 
 
-.ui-btn ui-shadow{
-    margin-top: 350px;
-    margin-right: 10%;
-    margin-left: 10%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
+
+
+
+
+
 
 /*@import url(http://fonts.googleapis.com/css?family=Oswald);*/
 

@@ -18,8 +18,10 @@ angular.module('myApp.view1', ['ngRoute'])
           console.log(url);
           // window.location.assign(url);
           
-          $scope.clickme = function(){
-            window.open(url, '_self');
+          $scope.clickme = function(u_id, sd, ed, sum, desp, loc, urllink){
+            var url3 = "http://localhost:8080/ical?uid="+u_id+"&stdate="+sd+"&edate="+ed+"&summary="+sum+"&description="+desp+"&location="+loc+"&url="+urllink;
+            console.log(sd);
+            window.open(url3, '_self');
 
           }
       }
@@ -37,6 +39,8 @@ angular.module('myApp.view1', ['ngRoute'])
         $scope.summary = [];
         $scope.ical = arr;
         $scope.count = arr.length;
+
+      
 
       
        
