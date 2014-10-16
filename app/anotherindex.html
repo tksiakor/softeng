@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>iCal</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.4.css">
+        
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.4.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/custom1.css">
+</head>
+<body>
+
+<h2>AshCal Individual Events</h2>
+
+
+<div ng-controller="View1Ctrl" class="ui-content" role="main">
+	<!-- <a href="#" ng-click='clickme()'>All Events Count: </a> -->
+All Events Count:
+{{summary.summary}}
+{{count}}
+<!-- {{ical}} -->
+ <br/> <br/>
+Search Events:
+<input ng-model="searchText"/>
+ <br/>
+
+<form class="transparent">
+    <fieldset data-role="controlgroup">
+       <span> <center><h1>Sync ooo Sync</legend></h1></center></span>
+
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Search events..." data-inset="true">
+	<li ng-repeat="i in ical | filter:searchText track by $index">
+
+		<a href="#" ng-click='clickme()'>{{i.summary}}</a>
+		<!-- <ul>
+		<li ng-repeat="s in i.summary track by $index"> 
+			{{s}}
+		</li>
+		</ul>	 -->
+		
+	</li>
+</ul>
+
+    </fieldset>
+</form>
+
+</div>
+<!--<p> This is the birthday text {{birthdaytext}}</p>-->
+
+
+</body>
+</html>	

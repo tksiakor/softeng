@@ -11,7 +11,9 @@
     "karma": "^0.12.24",
     "karma-junit-reporter": "^0.2.2",
     "protractor": "^1.1.1",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "express": "4.x",
+    "express": "3.x"
   },
   "scripts": {
     "postinstall": "bower install",
