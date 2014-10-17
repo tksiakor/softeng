@@ -1,0 +1,11 @@
+<input type="search" class="form-control app-search" placeholder="Search.." ng-model="searchText"/>
+
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="list-group">
+      <a ng-repeat="i in ical | filter:searchText track by $index" href="#" class="list-group-item">
+        {{ i.summary }} <i class="fa fa-chevron-right pull-right">{{i.start | date : mediumDate}}</i>
+      </a>
+    </div>
+  </div>
+</div>

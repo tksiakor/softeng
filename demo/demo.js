@@ -13,6 +13,7 @@ app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/overlay',   {templateUrl: "overlay.html"}); 
   $routeProvider.when('/forms',     {templateUrl: "forms.html"});
   $routeProvider.when('/carousel',  {templateUrl: "carousel.html"});
+  $routeProvider.when('/all-events',  {templateUrl: "all-events.html"});
 });
 
 app.service('analytics', [
@@ -79,7 +80,7 @@ app.directive( "carouselExampleItem", function($rootScope, $swipe){
     }
 });
 
-app.controller('MainController', function($rootScope, $scope, analytics){
+app.controller('MainController', function($rootScope, $http, $scope, analytics){
 
   $rootScope.$on("$routeChangeStart", function(){
     $rootScope.loading = true;
@@ -126,5 +127,16 @@ app.controller('MainController', function($rootScope, $scope, analytics){
     { name: "Lee Norman", online: false },
     { name: "Ebony Rice", online: false }
   ];
+
+  var url = "http://ical-30890.onmodulus.net/ical2";
+  $http.get(url).success(function (data) {
+        console.log(url);
+
+        var arr = $.map(data, function(value, key){return value;});
+        $scope.summary = [];
+        $scope.ical = arr;
+        $scope.count = arr.length;
+        $scope.today = new Date();
+      });
 
 });
