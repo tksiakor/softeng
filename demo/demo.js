@@ -128,6 +128,13 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
     { name: "Ebony Rice", online: false }
   ];
 
+  $scope.clickme = function(u_id, sd, ed, sum, desp, loc, urllink){
+            var url3 = "http://ical-30890.onmodulus.net/ical?uid="+u_id+"&stdate="+sd+"&edate="+ed+"&summary="+sum+"&description="+desp+"&location="+loc+"&url="+urllink;
+            console.log(sd);
+            window.open(url3, '_self');
+
+  }
+
   var url = "http://ical-30890.onmodulus.net/ical2";
   $http.get(url).success(function (data) {
         console.log(url);
