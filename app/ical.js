@@ -2,12 +2,12 @@ var express = require('express');
 var app = express();
 
 var gen = require('ical-generator'),
-    http = require('http'),
-    cal = gen();
+    http = require('http');
+    
 
 
 app.get('/ical', function(req, res){
- 
+ var cal = gen();
 
   res.header("Access-Control-Allow-Origin", "*");
        res.header("Access-Control-Allow-Methods", "GET, POST");
