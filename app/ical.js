@@ -4,7 +4,7 @@ var app = express();
 var gen = require('ical-generator'),
     http = require('http');
     
-    var cal1 = gen();
+var cal1 = gen();
 
 app.get('/addCal', function(req, res){
   res.header("Access-Control-Allow-Origin", "*");
@@ -32,10 +32,16 @@ cal1.addEvent({
 
 });
 
-app.get('/serveCal', function(){
+app.get('/serveCal', function(req, res){
   cal1.serve(res);
 
 });
+
+app.get('/flushCal', function(req, res){
+  cal1 = gen()
+
+});
+
 
 
 app.get('/ical', function(req, res){
