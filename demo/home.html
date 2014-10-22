@@ -1,56 +1,94 @@
 <div class="scrollable">  
   <div class="scrollable-content">
 
-    <div class="list-group">
+    <!-- <div class="list-group">
       <div class="list-group-item">
         <h1><small>Ashesi Calendar Sync</small></h1>
       </div>
       <div class="list-group-item media">
-            <h3 class="media-heading">Happening Today!</h3>
-    <div class="list-group">
-      <a href="{{'#overlay'+i.uid}}" toggle = "on" ng-repeat="i in todayEvents | orderBy:'i.start'" href="#" class="list-group-item">
-       {{i.start | date : 'MMM dd'}}: {{ i.summary }}
+            <h3 class="media-heading">Happening Today</h3>
+            <div class="list-group">
+                <a href="{{'#overlay'+i.uid}}" toggle = "on" ng-repeat="i in todayEvents | orderBy:'i.start'" href="#" class="list-group-item">{{ i.summary }}</a>
+            </div>
+      </div>
 
+
+      <div class="list-group-item media">
+        <div class="media-body">
+            <h3 class="media-heading">Happening in 7 Days</h3>
+            <div class="list-group">
+                <a href="{{'#overlay'+i.uid}}" toggle = "on" ng-repeat="i in weekEvents | orderBy:'i.start'" href="#" class="list-group-item">{{i.start | date : 'MMM dd'}}: {{ i.summary }}</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="list-group-item media">
+        <div class="media-body">
+            <h3 class="media-heading">Download All Events</h3>
+        </div>
+      </div>
+    </div> -->
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading" toggle target="collapseOne">
+          <h4 class="panel-title">
+              Happening Today
+          </h4>
+        </div>
+        <div id="collapseOne" toggleable active-class="in" exclusion-group="accordion1" default="active" class="panel-collapse collapse">
+          <div class="panel-body">
+            <a href="{{'#overlay'+i.uid}}" toggle = "on" ng-repeat="i in todayEvents | orderBy:'i.start'" href="#" class="list-group-front">{{i.start | date : 'HH:mm'}}: {{ i.summary }}
+            <div overlay="{{'overlay'+i.uid}}" default="inactive">
+        <h4 class="overlay-title">{{i.summary}}</h4>    
+        <p>
+          {{i.description}}
+        </p>
+        <p toggle="off" bubble target="{{'overlay'+i.uid}}"}>
+          <span class="btn btn-primary" ng-click='addCal(i.uid,i.start,i.end,i.summary,i.description,i.location,i.url)'>Select</span>
+          <span class="btn btn-default" ng-click='clickme(i.uid,i.start,i.end,i.summary,i.description,i.location,i.url)'>Add to Calendar</span>
+        </p>  
+      </div>
       </a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" toggle target="collapseTwo">
+          <h4 class="panel-title">
+              Happening in 7 Days
+          </h4>
+        </div>
+        <div id="collapseTwo" toggleable active-class="in" exclusion-group="accordion1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <a href="{{'#overlay'+i.uid}}" toggle = "on" ng-repeat="i in weekEvents | orderBy:'i.start'" href="#" class="list-group-front">{{i.start | date : 'MMM dd'}}: {{ i.summary }}
+            <div overlay="{{'overlay'+i.uid}}" default="inactive">
+        <h4 class="overlay-title">{{i.summary}}</h4>    
+        <p>
+          {{i.description}}
+        </p>
+        <p toggle="off" bubble target="{{'overlay'+i.uid}}"}>
+          <span class="btn btn-primary" ng-click='addCal(i.uid,i.start,i.end,i.summary,i.description,i.location,i.url)'>Select</span>
+          <span class="btn btn-default" ng-click='clickme(i.uid,i.start,i.end,i.summary,i.description,i.location,i.url)'>Add to Calendar</span>
+        </p>  
+      </div>
+      </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" toggle target="collapseThree">
+          <h4 class="panel-title">
+              Download All Events
+          </h4>
+        </div>
+        <div id="collapseThree" toggleable active-class="in" exclusion-group="accordion1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <span class="btn btn-primary" ng-click='serveAll()' style="width:100%;">Add All Events to Calendar</span>
+          </div>
+        </div>
+      </div>
     </div>
-
-      </div>
-
-
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-tachometer feature-icon  text-primary"></i>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">Test responsiveness and speed</h3>
-            Scroll, tap, navigate, test that everything is smooth
-        </div>
-      </div>
-
-
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-expand feature-icon  text-primary"></i>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">Resize your browser</h3>
-            Stretch and squeeze your browser window to see both mobile and desktop versions.
-        </div>
-      </div>
-
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-stethoscope feature-icon  text-primary"></i>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">Submit an issue</h3>
-            Please submit any issue you'll find. It would help a lot!<br>
-            Just in case, don't forget to indicate your user agent string:<br>
-            {{userAgent}}
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </div>
