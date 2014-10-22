@@ -12,7 +12,7 @@ app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/accordion', {templateUrl: "accordion.html"}); 
   $routeProvider.when('/overlay',   {templateUrl: "overlay.html"}); 
   $routeProvider.when('/forms',     {templateUrl: "forms.html"});
-  $routeProvider.when('/carousel',  {templateUrl: "carousel.html"});
+  $routeProvider.when('/about',  {templateUrl: "about.html"});
   $routeProvider.when('/all-events',  {templateUrl: "all-events.html"});
 });
 
@@ -174,6 +174,7 @@ $scope.calCount = 0;
   var url = "http://ical-30890.onmodulus.net/ical2";
   $http.get(url).success(function (data) {
         console.log(url);
+        $scope.loading = false;
 
         var arr = $.map(data, function(value, key){return value;});
         $scope.summary = [];
@@ -192,5 +193,7 @@ $scope.calCount = 0;
               $scope.todayEvents.push(value);
           }
         }, log);
+        
 });
+  $scope.loading = true;
 });
