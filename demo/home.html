@@ -3,18 +3,17 @@
 
     <div class="list-group">
       <div class="list-group-item">
-        <h1>Welcome<br/>
-        <small>This is a demo of Mobile Angular UI</small>
-        </h1>
+        <h1><small>Ashesi Calendar Sync</small></h1>
       </div>
       <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-gamepad feature-icon text-primary"></i>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">Play around a little</h3>
-            Open the sidebar and start testing features
-        </div>
+            <h3 class="media-heading">Happening Today!</h3>
+    <div class="list-group">
+      <a href="{{'#overlay'+i.uid}}" toggle = "on" ng-repeat="i in todayEvents | orderBy:'i.start'" href="#" class="list-group-item">
+       {{i.start | date : 'MMM dd'}}: {{ i.summary }}
+
+      </a>
+    </div>
+
       </div>
 
 

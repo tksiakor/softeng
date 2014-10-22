@@ -135,6 +135,8 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
 
   }
 
+  $scope.todayEvents = [];
+  var todayDate = new Date();
   var url = "http://ical-30890.onmodulus.net/ical2";
   $http.get(url).success(function (data) {
         console.log(url);
@@ -143,7 +145,15 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
         $scope.summary = [];
         $scope.ical = arr;
         $scope.count = arr.length;
-        $scope.today = new Date();
+        
+var log = [];
+angular.forEach($scope.ical, function(value, key) {
+  var eventDates = new Date(value.start);
+  if(eventDates > todayDate){
+    console.log(key + ' : ' + value.summary);
+    $scope.todayEvents.push(value);
+  }
+}, log);
       });
 
 });
