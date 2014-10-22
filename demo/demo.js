@@ -130,9 +130,25 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
 
   $scope.clickme = function(u_id, sd, ed, sum, desp, loc, urllink){
             var url3 = "http://ical-30890.onmodulus.net/ical?uid="+u_id+"&stdate="+sd+"&edate="+ed+"&summary="+sum+"&description="+desp+"&location="+loc+"&url="+urllink;
-            console.log(sd);
+            //console.log(sd);
             window.open(url3, '_self');
 
+  }
+
+  $scope.addCal = function(u_id, sd, ed, sum, desp, loc, urllink){
+      var url4 = "http://calito-31036.onmodulus.net/addCal?uid="+u_id+"&stdate="+sd+"&edate="+ed+"&summary="+sum+"&description="+desp+"&location="+loc+"&url="+urllink;
+      var request = $http({
+                        method: "get",
+                        url: url4,
+                        params: {
+                            action: "get"
+                        }
+                    });
+  }
+
+  $scope.serveCal = function(){
+      var url4 = "http://calito-31036.onmodulus.net/serveCal";
+      window.open(url4, '_self');
   }
 
   $scope.todayEvents = [];

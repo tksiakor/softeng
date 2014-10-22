@@ -4,10 +4,42 @@ var app = express();
 var gen = require('ical-generator'),
     http = require('http');
     
+    var cal1 = gen();
+
+app.get('/addCal', function(req, res){
+  res.header("Access-Control-Allow-Origin", "*");
+       res.header("Access-Control-Allow-Methods", "GET, POST");
+  
+  console.log('uid:'+ req.param('uid'));
+ console.log('stdate:'+ req.param('stdate').substring(4,6));
+ console.log('edate:'+ new Date().getTime());
+ console.log('summary:'+ req.param('summary'));
+ console.log('description:'+ req.param('description'));
+ console.log('location:'+ req.param('location'));
+ console.log('url:'+ req.param('url'));
+
+ cal1.setDomain('ashesi.edu.gh').setName('AshCal');
+
+cal1.addEvent({
+    uid:''+req.param('uid'),
+    start: new Date(req.param('stdate')),
+    end: new Date(req.param('edate')),
+    summary: ''+req.param('summary'),
+    description: ''+req.param('description'),
+    location: ''+req.param('location'),
+    url: ''+req.param('url')
+});
+
+});
+
+app.get('/serveCal', function(){
+  cal1.serve(res);
+
+});
 
 
 app.get('/ical', function(req, res){
- var cal = gen();
+  var cal = gen();
 
   res.header("Access-Control-Allow-Origin", "*");
        res.header("Access-Control-Allow-Methods", "GET, POST");
