@@ -127,6 +127,7 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
     { name: "Lee Norman", online: false },
     { name: "Ebony Rice", online: false }
   ];
+$scope.calCount = 0;
 
   $scope.clickme = function(u_id, sd, ed, sum, desp, loc, urllink){
             var url3 = "http://ical-30890.onmodulus.net/ical?uid="+u_id+"&stdate="+sd+"&edate="+ed+"&summary="+sum+"&description="+desp+"&location="+loc+"&url="+urllink;
@@ -144,17 +145,16 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
                             action: "get"
                         }
                     });
+      $scope.calCount++;
   }
 
   $scope.flushCal = function(){
       var url6 = "http://calito-31036.onmodulus.net/flushCal";
       var request = $http({
                         method: "get",
-                        url: url6,
-                        params: {
-                            action: "get"
-                        }
+                        url: url6
                     });
+      $scope.calCount = 0;
   }
 
   $scope.serveCal = function(){

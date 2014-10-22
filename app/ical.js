@@ -38,7 +38,7 @@ app.get('/serveCal', function(req, res){
 });
 
 app.get('/flushCal', function(req, res){
-  cal1 = gen()
+  cal1 = gen();
 
 });
 
