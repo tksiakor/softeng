@@ -146,9 +146,20 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
                     });
   }
 
+  $scope.flushCal = function(){
+      var url6 = "http://calito-31036.onmodulus.net/flushCal";
+      var request = $http({
+                        method: "get",
+                        url: url6,
+                        params: {
+                            action: "get"
+                        }
+                    });
+  }
+
   $scope.serveCal = function(){
-      var url4 = "http://calito-31036.onmodulus.net/serveCal";
-      window.open(url4, '_self');
+      var url5 = "http://calito-31036.onmodulus.net/serveCal";
+      window.open(url5, '_self');
   }
 
   $scope.todayEvents = [];
