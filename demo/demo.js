@@ -128,6 +128,10 @@ app.controller('MainController', function($rootScope, $http, $scope, analytics){
     { name: "Ebony Rice", online: false }
   ];
 $scope.calCount = 0;
+  $scope.serveAll = function(){
+      var url1 = "http://ashesi.edu.gh/resources/events.html?task=ical.download&id=181";
+      window.open(url1, '_self');
+  } 
 
   $scope.clickme = function(u_id, sd, ed, sum, desp, loc, urllink){
             var url3 = "http://ical-30890.onmodulus.net/ical?uid="+u_id+"&stdate="+sd+"&edate="+ed+"&summary="+sum+"&description="+desp+"&location="+loc+"&url="+urllink;
@@ -162,8 +166,11 @@ $scope.calCount = 0;
       window.open(url5, '_self');
   }
 
-  $scope.todayEvents = [];
+ $scope.todayEvents = [];
+  $scope.weekEvents = [];
   var todayDate = new Date();
+  var weekToday = new Date(new Date().setDate(new Date().getDate()+1));
+  var weekAway = new Date(new Date().setDate(new Date().getDate() + 7));
   var url = "http://ical-30890.onmodulus.net/ical2";
   $http.get(url).success(function (data) {
         console.log(url);
@@ -173,14 +180,17 @@ $scope.calCount = 0;
         $scope.ical = arr;
         $scope.count = arr.length;
         
-var log = [];
-angular.forEach($scope.ical, function(value, key) {
-  var eventDates = new Date(value.start);
-  if(eventDates > todayDate){
-    console.log(key + ' : ' + value.summary);
-    $scope.todayEvents.push(value);
-  }
-}, log);
-      });
-
+        var log = [];
+        angular.forEach($scope.ical, function(value, key) {
+          var eventDates = new Date(value.start);
+          if(eventDates.getTime() > weekToday.getTime() && eventDates.getTime() < weekAway.getTime()){
+            console.log(key + ' : ' + value.summary);
+            $scope.weekEvents.push(value);
+          }
+          if(eventDates.getDate() == todayDate.getDate()){
+              console.log(key + 'Key : ' + value.summary);
+              $scope.todayEvents.push(value);
+          }
+        }, log);
+});
 });
